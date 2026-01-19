@@ -1,0 +1,31 @@
+name: "CI Workflow"
+
+on: 
+    push:
+        branches:
+            - master
+            - production
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Setup Node.js"
+              uses: actions/setup-node@v6
+              with:
+                node-version: '20'
+            
+            - name: "Check Node Version"
+              run: node --version
+            
+            - name: "Clone the Repository"
+              uses: actions/checkout@v2
+
+            - name: "Installing Dependencies"
+              run: npm install
+            
+            - name: "List Directories"
+              run: ls
+            
+            - name: "Build Applications"
+              run: npm run build
