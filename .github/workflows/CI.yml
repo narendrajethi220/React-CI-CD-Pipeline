@@ -29,3 +29,9 @@ jobs:
             
             - name: "Build Applications"
               run: npm run build
+
+            - name: "Upload Production-Ready build files"
+              uses: actions/upload-artifact@v4
+              with:
+                name: build  # to
+                path: dist   # from
