@@ -12,8 +12,8 @@ jobs:
         runs-on: "ubuntu-latest"
         steps:
             - name: "Setup Node.js"
-             uses: actions/setup-node@v6
-             with:
+              uses: actions/setup-node@v6
+              with:
                 node-version: '20'
             
             - name: "Check Node Version"
@@ -27,7 +27,7 @@ jobs:
               with: 
                 name: build
                 run-id: ${{github.event.workflow_run.id}}
-                github_token: ${{github.token}}
+                github-token: ${{github.token}}
 
             - name: "Deploy to Vercel"
               run: vercel --prod --token=${{secrets.VERCEL_TOKEN}} --confirm --name=CICDProject
